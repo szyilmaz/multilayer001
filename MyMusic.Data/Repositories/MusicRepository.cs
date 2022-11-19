@@ -24,7 +24,7 @@ namespace MyMusic.Data.Repositories
         {
             return await MyMusicDbContext.Musics
                 .Include(m => m.Artist)
-                .SingleOrDefaultAsync(m => m.Id == id);;
+                .SingleOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task<IEnumerable<Music>> GetAllWithArtistByArtistIdAsync(int artistId)
