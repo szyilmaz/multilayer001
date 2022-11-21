@@ -1,6 +1,5 @@
 using MyMusic.Data;
 using MyMusic.Core;
-using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using MyMusic.Core.Services;
 using MyMusic.Services;
@@ -10,10 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "_myAllowSpecificOrigins",
-                      builder =>
-                      {
-                          builder.WithOrigins("http://localhost:3000/").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-                      });
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000/")
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
 });
 
 // Add services to the container.
@@ -31,7 +33,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
-builder.Services.AddDbContext<MyMusicDbContext>(options => options.UseSqlServer("name=Home"));
+builder.Services.AddDbContext<MyMusicDbContext>(options => options.UseSqlServer("name=Default"));
 
 var app = builder.Build();
 
