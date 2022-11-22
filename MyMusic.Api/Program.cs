@@ -33,7 +33,6 @@ internal class Program
             });
         });
 
-
         builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
         builder.Services.AddTransient<IMusicService, MusicService>();
         builder.Services.AddTransient<IArtistService, ArtistService>();
@@ -71,7 +70,6 @@ internal class Program
         builder.Services.AddAutoMapper(typeof(Program));
 
         builder.Services.AddDbContext<MyMusicDbContext>(options => options.UseSqlServer("name=Default"));
-
 
         builder.Services.AddIdentityCore<User>(opt =>
         {
