@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyMusic.Api.Resources;
 using MyMusic.Api.Validations;
@@ -22,6 +23,7 @@ namespace MyMusic.Api.Controllers
             this._artistService = artistService;
         }
 
+        [Authorize]
         [HttpGet("")]
         public async Task<ActionResult<IEnumerable<ArtistResource>>> GetAllArtists()
         {
