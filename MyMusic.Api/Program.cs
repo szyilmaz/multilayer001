@@ -42,7 +42,7 @@ internal class Program
         {
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
-                Description = "Jwt aut header",
+                Description = "Jwt auth header",
                 Name = "Authorization",
                 In = ParameterLocation.Header,
                 Type = SecuritySchemeType.ApiKey,
